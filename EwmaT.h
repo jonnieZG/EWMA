@@ -1,3 +1,6 @@
+#ifndef EWMAT_H_
+#define EWMAT_H_
+
 /*
  * Filter template that allows restriction to only one specific data type, such as uint32_t. Avoiding floating point arithmetics 
  * can significantly decrease code footprint, especially in embeded devices, such as Arduino or STM32.
@@ -80,3 +83,5 @@ template <typename T>
 T EwmaT<T>::output() {
     return (outputScaled + alphaScale / 2) / alphaScale;
 }
+
+#endif /* EWMAT_H_ */
