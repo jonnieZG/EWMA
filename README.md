@@ -30,3 +30,11 @@ If you want to create a filter for integers, with an alpha value of 0.03, you wi
 - `alphaScale` = Number that will divide the `alpha` value, in order to get the actual alpha parameter of the filter (usually 10, 100, 1000 etc.)
 - `lastOutput` = last filter output value
 - `output` = filter output value after the last reading
+
+# Applications
+
+Some sensors, like accelerometer or fast photoresistors, give you quite noisy readings, meaning that two consecutive readings usually can differ up to 10%. These spikes make detection of movements (or whatever correlated events) impossible, so in order to smooth them out, you need to use a filter like this one.
+
+Instantiate a filter, find an "alpha" value that meets the best your sampling frequency and noise level (the actual value is something you have to find out by trial and error) and feed it with readings from the sensor. Instead of using these readings directly in your further applications (calulations or whatever), read the filter .output value - and that's all.
+
+
