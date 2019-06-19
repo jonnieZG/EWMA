@@ -33,7 +33,7 @@ If you want to create a filter for integers, with an alpha value of 0.03, you wi
 
 # Applications
 
-Some sensors, like accelerometer or fast photoresistors, give you quite noisy readings, meaning that two consecutive readings usually can differ up to 10%. These spikes make detection of movements (or whatever correlated events) impossible, so in order to smooth them out, you need to use a filter like this one.
+Some sensors, like accelerometers or fast photoresistors that move a lot, give you quite noisy readings, meaning that two consecutive readings usually can differ up to 10%. These spikes make detection of movements (or whatever correlated events) impossible, so in order to smooth them out, you need to use a filter like this one.
 
 Instantiate a filter, find an `alpha` value that meets the best your sampling frequency and noise level (the actual value is something you have to find out by trial and error) and feed it with readings from the sensor. Instead of using these readings directly in your further applications (calulations or whatever), read the `.output` value from the filter - and that's all.
 
