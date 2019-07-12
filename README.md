@@ -1,7 +1,8 @@
 # EWMA
-Exponentially Weighted Moving Average filter is used for smoothing data series readings.
+Exponentially Weighted Moving Average filter is used for smoothing data series readings. Unlike the method with a history buffer that calculates an average of the last N readings, this method consumes significantly less memory and works faster.
 
-Unlike the method with a history buffer that calculates an average of the last N readings, this method consumes significantly less memory and works faster.
+For example, if you have a wonky ADC, like the one in ESP8266, with a lot of noise, you will need a filter to smooth out the readings. Basically, EWMA filter allows you to specify the weight of the last reading versus the previous filtered value, by setting the `alpha` parameter. Roughly said, if you set `alpha` to, let's say, 0.1 it means that the result will be approximately the average of the last 10 readings.
+
 
 `output = alpha * reading + (1 - alpha) * lastOutput`
 
