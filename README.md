@@ -50,7 +50,7 @@ Ewma adcFilter2(0.01);  // More smoothing - less prone to noise, but slower to d
 void setup()
 {
     Serial.begin(115200);
-	   pinMode(A0, INPUT);
+    pinMode(A0, INPUT);
 }
 
 void loop()
