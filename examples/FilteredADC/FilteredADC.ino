@@ -26,7 +26,16 @@ void loop()
     int raw = analogRead(A0);
     float filtered1 = adcFilter1.filter(raw);
     float filtered2 = adcFilter2.filter(raw);
-    Serial.printf("Raw=%d, Filter1=%.3f, Filter2=%.3f", raw, filtered1, filtered2);
-    
+    #if defined(ESP8266)
+      Serial.printf("Raw=%d, Filter1=%.3f, Filter2=%.3f", raw, filtered1, filtered2);
+    #else
+      Serial.print(F("Raw="));
+      Serial.print(raw);
+      Serial.print(F(", Filter1="));
+      Serial.print(filtered1);
+      Serial.print(F(", Filter2="));
+      Serial.println(filtered2);
+    #endif
+
     delay(100);
 }
