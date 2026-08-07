@@ -72,3 +72,9 @@ void loop()
     delay(100);
 }
 ```
+
+# Changes
+
+## 1.0.3
+- [#10](https://github.com/jonnieZG/EWMA/pull/10) - Changed `unsigned int` to `uint32_t` for `alphaScale` in `EwmaT`, so that the scale has a guaranteed width on platforms where `int` is only 16 bits.
+- [#11](https://github.com/jonnieZG/EWMA/pull/11) - Fixed example compilation error - `Serial.printf` is only used on ESP8266, while other platforms fall back to a sequence of `Serial.print` calls.
